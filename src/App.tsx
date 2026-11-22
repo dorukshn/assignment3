@@ -40,6 +40,9 @@ export default function App() {
       <h1>Task Manager</h1>
       <AddForm dispatch={dispatch} />
       <TaskList tasks={state.tasks} dispatch={dispatch} />
+      <button type="button" onClick={() => dispatch({ type: 'clearDone' })}>
+        Clear done
+      </button>
     </main>
   )
 }

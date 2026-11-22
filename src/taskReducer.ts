@@ -14,6 +14,8 @@ export type Action =
   | { type: 'add'; id: string; title: string }
   | { type: 'advance'; id: string }
   | { type: 'remove'; id: string }
+  | { type: 'setFilter'; filter: Filter }
+  | { type: 'clearDone' }
 
 const NEXT: Record<Status, Status> = {
   todo: 'in-progress',
@@ -37,5 +39,11 @@ export function taskReducer(state: State, action: Action): State {
       }
     case 'remove':
       return { ...state, tasks: state.tasks.filter((t) => t.id !== action.id) }
+    case 'setFilter':
+      // Only the filter changes; the tasks stay the same.
+      return { ...state, filter: action.filter }
+    case 'clearDone':
+      // Keep every task that is not done; the filter stays the same.
+      return { ...state, tasks: state.tasks.filter((t) => t.status !== 'done') }
   }
 }
