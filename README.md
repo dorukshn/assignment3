@@ -69,3 +69,12 @@ Output of `npm test`:
    Start at  13:05:04
    Duration  86ms (transform 62%, import 22%, tests 10%, worker 6%)
 ```
+
+## Bonus 4: Git repository
+
+https://github.com/dorukshn/assignment3
+
+The repository has a `.gitignore` that leaves out `node_modules` (and `dist`), and it runs
+after `git clone`, `npm install` and `npm run dev`. The history shows the work in steps,
+one commit per change (state shape, new actions, filter functions, filter bar, screenshots,
+undo, tests, README). The four screenshots are in `screenshots/`.
