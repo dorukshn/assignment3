@@ -86,9 +86,18 @@ export default function App() {
       <AddForm dispatch={dispatch} />
       <FilterBar filter={state.filter} counts={counts} dispatch={dispatch} />
       <TaskList tasks={visibleTasks} dispatch={dispatch} />
-      <button type="button" onClick={() => dispatch({ type: 'clearDone' })}>
-        Clear done
-      </button>
+      <div style={{ display: 'flex', gap: 8 }}>
+        <button type="button" onClick={() => dispatch({ type: 'clearDone' })}>
+          Clear done
+        </button>
+        <button
+          type="button"
+          disabled={state.past.length === 0}
+          onClick={() => dispatch({ type: 'undo' })}
+        >
+          Undo
+        </button>
+      </div>
     </main>
   )
 }
